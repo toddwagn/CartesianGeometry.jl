@@ -21,8 +21,5 @@ p = Point2D_Unbounded((rand()-0.5)*unbounded_max_coord, (rand()-0.5)*unbounded_m
 @test line_isequal(0., 0., 1.,1., -1., -1., 2., 2.)
 @test Line2D(Point(1., 1.), Point(1.5,1.5)) == Line2D(Point(1.7, 1.7), Point(prevfloat(2.), prevfloat(2.)))
 
-# Prevented in GeometricalPredicates
-#@test !ispoint(Line2D(Point(1.,1.), Point(1.5,1.5)))
-#@test ispoint(Line2D(Point(1.5, 1.5), Point(1.5, 1.5)))
 
 

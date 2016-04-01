@@ -18,7 +18,6 @@ export  # Export functions
 	getx,
 	gety,
 	isless,
-	#ispoint,
 	line_isequal,
 	simple_convex_polygon_area,
 	triangle_area,
@@ -76,10 +75,6 @@ function =={T<:AbstractPoint2D}(lineA::Line2D{T}, lineB::Line2D{T})
 	return (orientation(lineA, geta(lineB)) == 0 && orientation(lineA, getb(lineB)) == 0)
 end
 
-#function ispoint{T<:AbstractPoint2D}(line::Line2D{T})
-	#return geta(line) == getb(line)
-#end
-
 function line2D_ysolve{T<:AbstractPoint2D}(line::Line2D{T}, x)
 	return (gety(getb(line))-gety(geta(line)))*(x-getx(geta(line)))/(getx(getb(line))-getx(geta(line)))+gety(geta(line))
 end
@@ -94,11 +89,7 @@ function rand_line2D()
 end
 
 function intersection{T<:AbstractPoint2D}(line::Line2D{T}, point::T)
-	#if ispoint(line)
-		#return geta(line) == point
-	#else
-		return orientation(line, point) == 0
-	#end
+	return orientation(line, point) == 0
 end
 intersection{T<:AbstractPoint2D}(point::T, line::Line2D{T}) = intersection(line, point)
 
@@ -108,13 +99,6 @@ function intersection{T<:AbstractPoint2D}(lineA::Line2D{T}, lineB::Line2D{T})
 		return lineA
 	end
 
-	# line is a point
-	#if ispoint(lineA)
-		#return intersection(lineB, getA(lineA))
-	#elseif ispoint(lineB)
-		#return intersection(lineA, getA(lineB))
-	#end
-	
 	lineA_dx = getx(getb(lineA)) - getx(geta(lineA))
 	lineB_dx = getx(getb(lineB)) - getx(geta(lineB))
 
