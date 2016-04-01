@@ -8,17 +8,24 @@ using MatrixHelper
 import 
 	Base.isless,
 	Base.==,
-	GeometricalPredicates.area,
+	#GeometricalPredicates.area,
 	GeometricalPredicates.getx,
 	GeometricalPredicates.gety
 
 export  # Export functions
+	#area,
 	find_bounding_polygon,
 	generate_triangles,
 	getx,
 	gety,
+	intersection,
+	isbetween,
 	isless,
 	line_isequal,
+	line2D_xsolve,
+	line2D_ysolve,
+	rand_line2D,
+	segment_intersection,
 	simple_convex_polygon_area,
 	triangle_area,
 
