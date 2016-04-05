@@ -19,7 +19,7 @@ export  # Export functions
 	getx,
 	gety,
 	intersection,
-	isbetween,
+	#isbetween,
 	isless,
 	line_isequal,
 	line2D_xsolve,
@@ -96,7 +96,11 @@ function rand_line2D()
 end
 
 function intersection{T<:AbstractPoint2D}(line::Line2D{T}, point::T)
-	return orientation(line, point) == 0
+	if orientation(line, point) == 0
+		return point
+	else
+		return AbstractPoint2D
+	end
 end
 intersection{T<:AbstractPoint2D}(point::T, line::Line2D{T}) = intersection(line, point)
 
